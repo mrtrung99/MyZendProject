@@ -1,0 +1,28 @@
+<?php
+
+$title = 'Danh sach nhan vien';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('nhanvien', array('action'=>'add'));?>">Thêm nhan vien mới</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Ma nhan vien</th>
+    <th>Ten nhan vien</th>
+    <th> </th>
+</tr>
+<?php foreach ($nhanvien as $nhanvien) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($nhanvien->manv);?></td>
+    <td><?php echo $this->escapeHtml($nhanvien->tennv);?></td>    <td>
+        <a href="<?php echo $this->url('nhanvien',
+            array('action'=>'update', 'manv' => $nhanvien->manv));?>">Sửa</a>
+        <a href="<?php echo $this->url('nhanvien',
+            array('action'=>'delete', 'manv' => $nhanvien->manv));?>">Xóa</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

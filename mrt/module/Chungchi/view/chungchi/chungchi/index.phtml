@@ -1,0 +1,29 @@
+<?php
+
+$title = 'Danh sách chứng chỉ trung tâm ngoại ngữ ';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('chungchi', array('action'=>'add'));?>">Thêm chứng chỉ mới</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Mã chứng chỉ</th>
+    <th>Tên chứng chỉ</th>
+    <th> </th>
+</tr>
+<?php foreach ($chungchi as $chungchi) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($chungchi->macc);?></td>
+    <td><?php echo $this->escapeHtml($chungchi->tencc);?></td>
+    <td>
+        <a href="<?php echo $this->url('chungchi',
+            array('action'=>'update', 'macc' => $chungchi->macc));?>">Sửa</a>
+        <a href="<?php echo $this->url('chungchi',
+            array('action'=>'delete', 'macc' => $blog->macc));?>">Xóa</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

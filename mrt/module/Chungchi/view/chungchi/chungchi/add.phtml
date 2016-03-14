@@ -1,0 +1,26 @@
+<?php
+
+$title = 'Thêm chứng chỉ';
+$this->headTitle($title);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+
+<body>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('chungchi', array('action'=>'index'));?>">Xem danh sách chứng chỉ</a>
+</p>
+
+<form action="process" method="post">
+    Mã chứng chỉ: &nbsp;<input type="text" name="macc" required> <br> <hr>
+    Tên chứng chỉ: <input type="text" name="tencc" required> <br> <hr>
+    <input type="submit" value="Lưu">
+    <input type="reset" value="Reset">
+</form>
+</body>
+
+</html>

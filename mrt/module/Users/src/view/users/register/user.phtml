@@ -1,0 +1,30 @@
+<?php
+
+$title = 'Các ngôn ngữ';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('users', array('action'=>'index'));?>">Thêm người dùng mới</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>STT</th>
+    <th>Tên người dùng</th>
+    <th>Email</th>
+    <th> </th>
+</tr>
+<?php foreach ($users as $users) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($users->id);?></td>
+    <td><?php echo $this->escapeHtml($users->name);?></td>
+    <td><?php echo $this->escapeHtml($users->email);?></td>  <td>
+        <a href="<?php echo $this->url('user',
+            array('action'=>'update', 'id' => $users->id));?>">Sửa</a>
+        <a href="<?php echo $this->url('user',
+            array('action'=>'delete', 'id' => $user->id));?>">Xóa</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

@@ -1,0 +1,28 @@
+<?php
+
+$title = 'Các ngôn ngữ';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('ngonngu', array('action'=>'add'));?>">Thêm ngôn ngữ mới</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Mã ngôn ngữ</th>
+    <th>Tên ngôn ngữ</th>
+    <th> </th>
+</tr>
+<?php foreach ($ngonngu as $ngonngu) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($ngonngu->mann);?></td>
+    <td><?php echo $this->escapeHtml($ngonngu->tennn);?></td>    <td>
+        <a href="<?php echo $this->url('ngonngu',
+            array('action'=>'update', 'mann' => $ngonngu->mann));?>">Sửa</a>
+        <a href="<?php echo $this->url('ngonngu',
+            array('action'=>'delete', 'mann' => $ngonngu->mann));?>">Xóa</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>

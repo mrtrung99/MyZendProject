@@ -1,0 +1,297 @@
+<?php
+
+$title = 'Đây là giao diện menu chọn các chức năng của hệ thống';
+$this->headTitle($title);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $this->escapeHtml($title); ?></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+        body {
+        background: #ffffff url("img/img.jpg") no-repeat;
+        }
+        .jumbotron { 
+        background-color: #3399CC; /* Orange */
+        color: #ffffff;
+        #tb1 {
+        padding: 10px;
+        border: 0px solid;
+        margin: 20px;
+        width:900px ;
+        }
+        #panel1{
+            max-width: 60%; display: block;
+        }
+            
+       #panel2{
+            max-width: 40%; display: block;
+             max-height: 50%; display: block;
+        }
+            
+       #panel2{
+             max-width: 40%; display: block;
+             max-height: 50%; display: block;
+        }
+      <!--  #panel1 {width: 1000px;}  -->
+      </style>
+</head>
+<body>
+
+   
+  
+<div class="container" id="menu">
+    <div>
+        <div class="jumbotron text-center">
+             <h1>Foreign Languages Center</h1> 
+ <!-- <p>Chúng tôi là chuyên gia trong lĩnh vực sữa tươi và các sản phẩm về sữa</p> -->
+            <p>Uy tín - Chất lượng - Vững bền</p> 
+            <form class="form-inline">
+                <a href="http://ctu.edu.vn" target="_blank"><button type="button" class="btn btn-danger">Trang chủ</button>  </a>            
+            </form>
+        </div> 
+    </div>
+    
+      <div id="panel" class="panel-group"> 
+          <div id ="panel1"class="panel panel-primary text-center">
+              <div class="panel-heading"><?php echo $this->escapeHtml($title); ?></div>
+              <br><br>
+              <div id="demo" class="panel-body">
+                  <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#home">Cập nhật danh mục</a></li>
+                    <li><a data-toggle="tab" href="#menu1">Tổ chức giảng dạy</a></li>
+                    <li><a data-toggle="tab" href="#menu2">Tích hợp truyền tải thông tin tự động lên Website trung tâm</a></li>
+                    <li><a data-toggle="tab" href="#menu3">Xét và cấp chứng chỉ</a></li>
+                  </ul>
+
+          <div class="tab-content">
+ <!--Day la test tab 1-->             
+            <div id="home" class="tab-pane fade in active">        
+                  <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Phần chung</a>
+                        </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                           
+                            <button type="button" class="btn btn-primary">Khóa học <span class="badge">1</span></button>
+                            <a href="http://mrt.local/ngonngu" target="_blank"> <button type="button" class="btn btn-primary">Ngôn ngữ <span class="badge">2</span></button></a>
+                            <button type="button" class="btn btn-primary">Chứng chỉ <span class="badge">3</span></button>
+                            <button type="button" class="btn btn-primary">Cấp lớp <span class="badge">4</span></button>
+                            <br><hr>
+                            <button type="button" class="btn btn-primary">Lớp học <span class="badge">5</span></button>
+                            <button type="button" class="btn btn-primary">Môn học <span class="badge">6</span></button>
+                            <button type="button" class="btn btn-primary">Ca <span class="badge">7</span></button>
+                            <button type="button" class="btn btn-primary">Khu <span class="badge">8</span></button>
+                            <br><hr>
+                            <button type="button" class="btn btn-primary">Phòng <span class="badge">9</span></button>
+                            <button type="button" class="btn btn-primary">Chức vụ <span class="badge">10</span></button>
+                            <button type="button" class="btn btn-primary">Trụ sở <span class="badge">11</span></button>
+                            <button type="button" class="btn btn-primary">Bộ phận <span class="badge">12</span></button>
+                        </div>
+                      </div>
+                    </div>
+                      
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Phần riêng</a>
+                        </h4>
+                      </div>
+                      <div id="collapse3" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <button type="button" class="btn btn-primary">Bằng cấp<span class="badge">1</span></button>
+                            <button type="button" class="btn btn-primary">Bộ hồ sơ <span class="badge">2</span></button>
+                            <button type="button" class="btn btn-primary">Hồ sơ <span class="badge">3</span></button>
+                            <button type="button" class="btn btn-primary">Tiêu chí đánh giá <span class="badge">4</span></button>
+                            <br><hr>
+                            <button type="button" class="btn btn-primary">Mức độ đánh giá <span class="badge">5</span></button>
+                            <button type="button" class="btn btn-primary">Kế hoạch thi <span class="badge">6</span></button>
+                            <button type="button" class="btn btn-primary">Kế hoạch cấp chứng chỉ<span class="badge">7</span></button>
+                            <button type="button" class="btn btn-primary">Kế hoạch đăng ký dự thi chứng chỉ <span class="badge">8</span></button>
+                            <br><hr>
+                            <button type="button" class="btn btn-primary">Kế hoạch đăng ký dự thi môn <span class="badge">9</span></button>
+                        </div>
+                      </div>
+                    </div>    
+                  </div> 
+                </div> 
+<!--Het tab1-->             
+<!--Day la test tab 2-->             
+            <div id="menu1" class="tab-pane fade in">        
+                  
+                      <br>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <a href="pulpitrock.jpg" class="thumbnail">
+                            <p>Chấm công giảng viên</p>    
+                            <img src="img/chamcong.png" alt="Chấm công giảng viên" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="moustiers-sainte-marie.jpg" class="thumbnail">
+                            <p>Thanh toán giờ dạy giảng viên</p>    
+                            <img src="img/thanhtoan.png" alt="Thanh toán giờ dạy" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="cinqueterre.jpg" class="thumbnail">
+                            <p>Phân quyền giảng viên nhập điểm</p>    
+                            <img src="img/phanquyen.gif" alt="Phân quyền giảng viên nhập điểm" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="cinqueterre.jpg" class="thumbnail">
+                            <p>Tổ chức thi</p>    
+                            <img src="img/tochucthi.jpg" alt="Tổ chức thi" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <a href="pulpitrock.jpg" class="thumbnail">
+                            <p>Phân công giảng viên coi thi</p>    
+                            <img src="img/phanconggvcoithi.png" alt="Phân công giảng viên coi thi" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="moustiers-sainte-marie.jpg" class="thumbnail">
+                            <p>Quản lý điểm số học viên</p>    
+                            <img src="img/quanlydiemso.png" alt="Quản lý điểm số" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="pulpitrock.jpg" class="thumbnail">
+                            <p>Báo cáo tổng hợp chất lượng kết quả thi</p>    
+                            <img src="img/baocaokqthi.png" alt="Báo cáo kết quả thi" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="moustiers-sainte-marie.jpg" class="thumbnail">
+                            <p>Báo cáo chất lượng giảng dạy Giảng viên dựa trên kết quả học viên</p>    
+                            <img src="img/baocaochatluong.png" alt="Báo cáo chất lượng" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                      </div>
+                       <div class="row">
+                        <div class="col-md-3">
+                          <a href="pulpitrock.jpg" class="thumbnail">
+                            <p>Báo cáo kết quả đánh giá học viên đối với giảng viên</p>    
+                            <img src="img/baocaodanhgia.png" alt="Báo cáo đánh giá" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                      </div>
+               
+            </div> 
+<!--Het tab2-->               
+<!--Day la test tab 3-->             
+            <div id="menu2" class="tab-pane fade in">        
+                
+                      <br>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <a href="pulpitrock.jpg" class="thumbnail">
+                            <p>Xem thông tin cá nhân</p>    
+                            <img src="img/profile.png" alt="Xem thông tin cá nhân" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="moustiers-sainte-marie.jpg" class="thumbnail">
+                            <p>Xem lịch học</p>    
+                            <img src="img/lichhoc.png" alt="Xem lịch học" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="cinqueterre.jpg" class="thumbnail">
+                            <p>Xem lịch thi</p>    
+                            <img src="img/lichthi.png" alt="Xem lịch thi" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="cinqueterre.jpg" class="thumbnail">
+                            <p>Xem kết quả học tập</p>    
+                            <img src="img/ketquahoctap.jpg" alt="Xem kết quả học tập" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <a href="pulpitrock.jpg" class="thumbnail">
+                            <p>Xem chương trình học</p>    
+                            <img src="img/chuongtrinhhoc.png" alt="Xem chương trình học" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="moustiers-sainte-marie.jpg" class="thumbnail">
+                            <p>Học viên đánh giá giảng viên</p>    
+                            <img src="img/danhgia.png" alt="Đánh giá" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                      </div>
+               
+            </div> 
+<!--Het tab3-->
+<!--Day la test tab 4-->             
+            <div id="menu3" class="tab-pane fade in">        
+                 
+                      <br>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <a href="pulpitrock.jpg" class="thumbnail">
+                            <p>Xét kết quả cấp chứng chỉ</p>    
+                            <img src="img/xetketqua.jpg" alt="Xét kết quả cấp chứng chỉ" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="moustiers-sainte-marie.jpg" class="thumbnail">
+                            <p>Quản lý danh sách công nhận cấp chứng chỉ</p>    
+                            <img src="img/quanlyds.png" alt="Quản lý danh sách" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="cinqueterre.jpg" class="thumbnail">
+                            <p>Quản lý văn bằng chứng chỉ đã cấp</p>    
+                            <img src="img/quanlyvanbang.png" alt="Quản lý văn bằng" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                        <div class="col-md-3">
+                          <a href="cinqueterre.jpg" class="thumbnail">
+                            <p>Tra cứu hồ sơ đã cấp chứng chỉ</p>    
+                            <img src="img/tracuu.png" alt="Tra cứu" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-md-3">
+                          <a href="pulpitrock.jpg" class="thumbnail">
+                            <p>Tổng hợp báo cáo số lượng chứng chỉ đã cấp theo từng loại</p>    
+                            <img src="img/report.png" alt="Tổng hợp báo cáo" style="width:150px;height:150px">
+                          </a>
+                        </div>
+                      </div> 
+              
+            </div> 
+<!--Het tab4-->      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
