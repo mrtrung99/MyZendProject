@@ -1,0 +1,62 @@
+<?php
+
+$title = 'My blogs';
+$output = '';
+$this->headTitle($title);
+
+                $output .= '
+                    <table class="table" bordered="1">
+                        <tr>
+                            <th>ID</th>
+                            <th>Blog</th>
+                            <th>Created</th>
+                        </tr>
+                ';
+                
+                foreach($blogs as $blog){
+                    $output .='
+                        <tr>
+                            <td>echo $this->escapeHtml($blog->id);</td>
+                            <td>echo $this->escapeHtml($blog->blog);</td>
+                            <td>echo $this->escapeHtml($blog->created);</td>
+                        </tr>
+                    ';
+                }
+                $output .= '</table>';
+                
+              $fn = 'download.xls';
+                header('Content-Type: application/xls');
+                header('Content-Disposition: attachment, filename='.$fn.'');
+                echo $output;
+            
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('blog', array('action'=>'add'));?>">Add new blog</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>ID</th>
+    <th>Blog</th>
+    <th>Created</th>
+    <th> </th>
+</tr>
+<?php foreach ($blogs as $blog) : ?>
+<tr>
+    <td><?php echo $this->escapeHtml($blog->id);?></td>
+    <td><?php echo $this->escapeHtml($blog->blog);?></td>
+    <td><?php echo $this->escapeHtml($blog->created);?></td>
+    <td>
+        <a href="<?php echo $this->url('blog',
+            array('action'=>'update', 'id' => $blog->id));?>">Update</a>
+        <a href="<?php echo $this->url('blog',
+            array('action'=>'delete', 'id' => $blog->id));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
+<form action="<?php echo $this->url('blog',
+            array('action'=>'down'));?>" method="post">
+    <input type="submit" name="export_excel" value="Export to Excel">
+</form>

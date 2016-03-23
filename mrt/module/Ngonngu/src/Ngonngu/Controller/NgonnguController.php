@@ -19,34 +19,7 @@ class NgonnguController extends AbstractActionController {
     }
 
     public function updateAction() {
-        $mann = $this->params()->fromRoute('mann');
-        if (!$id) {
-            return $this->redirect()->toRoute('ngonngu', array('action' => 'add'));
-        }
-
-        $ngonngu = $this->getNgonnguTable()->getNgonngu($mann);
-
-        if (!$ngonngu) {
-           return $this->redirect()->toRoute('ngonngu', array('action' => 'index')); 
-        }
-
-        $form = new NgonnguForm();
-        $form->bind($ngonngu);
-
-        $request = $this->getRequest();
-        if ($request->isPost()) {
-            $form->setInputFilter($ngonngu->getInputFilter());
-            $form->setData($request->getPost());
-
-            if ($form->isValid()) {
-                $this->getNgonnguTable()->saveNgonngu($ngonngu);
-
-                // Tro ve danh sach blog
-                return $this->redirect()->toRoute('ngonngu');
-            }
-        }
-
-        return array('mann' => $mann,'form'=>$form);
+ 
 
     }
 

@@ -11,7 +11,7 @@
  * file.
  */
 
-return array(
+return $connect = array(
     'db' => array(
         'driver' => 'Pdo',
         'dsn' => 'mysql:dbname=mrt;host=localhost',
