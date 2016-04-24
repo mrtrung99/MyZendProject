@@ -9,6 +9,11 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script>
+        $(document).ready(function(){
+    $("p").click(function(){
+        $(this).hide();
+    });
+        });
         /*
 $(document).ready(function(){
     $("#khoa").click(function(){
@@ -33,6 +38,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+    <p>If you click on me, I will disappear.</p>
+<p>Click me away!</p>
+<p>Click me too!</p>
+
 <!--
 <h2>This is a heading</h2>
 

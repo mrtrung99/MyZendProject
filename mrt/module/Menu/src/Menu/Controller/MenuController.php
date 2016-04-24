@@ -15,6 +15,50 @@ class MenuController extends AbstractActionController {
 //		'blogs' => $this->getBlogTable()->fetchAll(),
 //	));
     }
+    public function adminAction() {
+      //  if(!isset($_SESSION['id'])){
+     //        header('Location: http://luanvan.local/dangnhap.php');
+     //   } else{
+        $id = $_GET['id'];
+        $view = new ViewModel(array(
+           'id' => $id,
+         ));
+        return $view;
+      //  }
+    }
+    public function ctAction() {
+        $view = new ViewModel();
+        return $view;
+    }
+     public function ngonnguAction() {
+        $view = new ViewModel();
+        return $view;
+    }
+    public function dangnhapAction() {
+        $view = new ViewModel();
+        return $view;
+    }
+
+        public function hocvienAction() {
+          //  session_start();
+if (!isset($_SESSION['username'])) {
+	 header('Location: http://luanvan.local/dangnhap.php');
+}
+         $id = $_GET['id'];
+        $view = new ViewModel(array(
+           'id' => $id,
+         ));
+        return $view;
+    }
+        public function giangvienAction() {
+        $id = $_GET['id'];
+        $view = new ViewModel(array(
+           'id' => $id,
+         ));
+        return $view;
+        }
+
+
 
     public function addAction() {
 

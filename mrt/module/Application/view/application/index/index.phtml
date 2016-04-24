@@ -1,44 +1,599 @@
-<div class="jumbotron">
-    <h1><?php echo sprintf($this->translate('Welcome to %sZend Framework 2%s'), '<span class="zf-green">', '</span>') ?></h1>
-    <p><?php echo sprintf($this->translate('Congratulations! You have successfully installed the %sZF2 Skeleton Application%s. You are currently running Zend Framework version %s. This skeleton can serve as a simple starting point for you to begin building your application on ZF2.'), '<a href="https://github.com/zendframework/ZendSkeletonApplication" target="_blank">', '</a>', \Zend\Version\Version::VERSION) ?></p>
-    <p><a class="btn btn-success btn-lg" href="https://github.com/zendframework/zf2" target="_blank"><?php echo $this->translate('Fork Zend Framework 2 on GitHub') ?> &raquo;</a></p>
+<!DOCTYPE html> 
+<head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="fusioncharts/js/fusioncharts.js"></script>
+        <script type="text/javascript" src="fusioncharts/js/themes/fusioncharts.theme.ocean.js"></script>
+         <style>
+              body {
+                  font: 400 15px Lato, sans-serif;
+                  line-height: 1.8;
+                  color: #818181;
+              }
+              h2 {
+                  font-size: 24px;
+                  text-transform: uppercase;
+                  color: #303030;
+                  font-weight: 600;
+                  margin-bottom: 30px;
+              }
+              h4 {
+                  font-size: 19px;
+                  line-height: 1.375em;
+                  color: #303030;
+                  font-weight: 400;
+                  margin-bottom: 30px;
+              }  
+              .jumbotron {
+                  background-color: #3399CC;
+                  color: #fff;
+                  padding: 100px 20px;
+                  width: 98%;
+                  height: 100px;
+                  font-family: Segoe UI, sans-serif;
+              }
+              .container-fluid {
+                  padding: 60px 50px;
+              }
+              .bg-grey {
+                  background-color: #f6f6f6;
+              }
+              .logo-small {
+                  color: #B3EE3A;
+                  font-size: 50px;
+              }
+              .logo {
+                  color: #B3EE3A;
+                  font-size: 300px;
+              }
+              .thumbnail {
+                  padding: 0 0 15px 0;
+                  border: none;
+                  border-radius: 0;
+              }
+              .thumbnail img {
+                  width: 100%;
+                  height: 100%;
+                  margin-bottom: 10px;
+              }
+              .carousel-control.right, .carousel-control.left {
+                  background-image: none;
+                  color: #f4511e;
+              }
+              .carousel-indicators li {
+                  border-color: #f4511e;
+              }
+              .carousel-indicators li.active {
+                  background-color: #f4511e;
+              }
+              .item h4 {
+                  font-size: 19px;
+                  line-height: 1.375em;
+                  font-weight: 400;
+                  font-style: italic;
+                  margin: 70px 0;
+              }
+              .item span {
+                  font-style: normal;
+              }
+              .panel {
+                  border: 1px solid #f4511e; 
+                  border-radius:0 !important;
+                  transition: box-shadow 0.5s;
+              }
+              .panel:hover {
+                  box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+              }
+              .panel-footer .btn:hover {
+                  border: 1px solid #f4511e;
+                  background-color: #fff !important;
+                  color: #f4511e;
+              }
+              .panel-heading {
+                  color: #fff !important;
+                  background-color: #0099FF !important;
+                  padding: 25px;
+                  border-bottom: 1px solid transparent;
+                  border-top-left-radius: 0px;
+                  border-top-right-radius: 0px;
+                  border-bottom-left-radius: 0px;
+                  border-bottom-right-radius: 0px;
+              }
+              .panel-footer {
+                  background-color: white !important;
+              }
+              .panel-footer h3 {
+                  font-size: 32px;
+              }
+              .panel-footer h4 {
+                  color: #aaa;
+                  font-size: 14px;
+              }
+              .panel-footer .btn {
+                  margin: 15px 0;
+                  background-color: #f4511e;
+                  color: #fff;
+              }
+              .navbar {
+                  margin-bottom: 0;
+                  background-color: #3399CC;
+                  z-index: 9999;
+                  border: 0;
+                  font-size: 12px !important;
+                  line-height: 1.42857143 !important;
+                  letter-spacing: 4px;
+                  border-radius: 0;
+                  font-family: Segoe UI, sans-serif;
+              }
+              .navbar li a, .navbar .navbar-brand {
+                  color: #fff !important;
+              }
+              .navbar-nav li a:hover, .navbar-nav li.active a {
+                  color: #f4511e !important;
+                  background-color: #fff !important;
+              }
+              .navbar-default .navbar-toggle {
+                  border-color: transparent;
+                  color: #fff !important;
+              }
+              footer .glyphicon {
+                  font-size: 20px;
+                  margin-bottom: 20px;
+                  color: #f4511e;
+              }
+              .slideanim {visibility:hidden;}
+              .slide {
+                  animation-name: slide;
+                  -webkit-animation-name: slide;	
+                  animation-duration: 1s;	
+                  -webkit-animation-duration: 1s;
+                  visibility: visible;			
+              }
+              @keyframes slide {
+                0% {
+                  opacity: 0;
+                  -webkit-transform: translateY(70%);
+                } 
+                100% {
+                  opacity: 1;
+                  -webkit-transform: translateY(0%);
+                }	
+              }
+              @-webkit-keyframes slide {
+                0% {
+                  opacity: 0;
+                  -webkit-transform: translateY(70%);
+                } 
+                100% {
+                  opacity: 1;
+                  -webkit-transform: translateY(0%);
+                }
+              }
+              @media screen and (max-width: 768px) {
+                .col-sm-4 {
+                  text-align: center;
+                  margin: 25px 0;
+                }
+                .btn-lg {
+                    width: 100%;
+                    margin-bottom: 35px;
+                }
+              }
+              @media screen and (max-width: 480px) {
+                .logo {
+                    font-size: 150px;
+                }
+              }
+              </style>
+    </head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<script>
+    function changePage(event) {
+    if($(event.target).hasClass('external')) {
+        window.location.href = $(event.target).attr('href');
+        return;
+    }
+}
+</script>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+                    
+      </button>
+      <a class="navbar-brand" href="#myPage">Trung Tâm Ngoại Ngữ</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#sp">Ngôn ngữ</a></li>
+        <li><a href="#services">Khóa học</a></li>
+        <li><a href="#donggop">Đóng góp</a></li>
+        <li><a href="#login">Hệ thống quản lý</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+     <!--   <li><a href="http://ctu.edu.vn/" class="external">Đăng nhập</a></li> -->
+      </ul>
+  <!--    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="http://luanvan.local/dangnhap.php" target="_blank"><span class="glyphicon glyphicon-log-in"></span>Đăng nhập</a></li>
+
+    </ul> -->
+    </div>
+  </div>
+
+</nav>
+<!--
+<div class="col-md-3">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Menu 1</a></li>
+        <li><a href="#">Menu 2</a></li>
+        <li><a href="#">Menu 3</a></li>
+      </ul>
+</div> -->
+<div class="jumbotron text-center">
+    
+  <h1>Trung Tâm Ngoại Ngữ</h1> 
+  <!--<p>Chúng tôi là chuyên gia trong lĩnh vực sữa tươi và các sản phẩm về sữa</p> 
+  <p>Uy tín - Chất lượng - Vững bền</p> -->
+</div>
+<div class="container">    <ul class="nav nav-pills nav-justified">
+          <li><a href="http://mrt.local/menu/ct"><b>Chương trình học</b></a></li>
+          <li><a href="http://luanvan.local/cackhoahoc.php"><b>Các lớp học</b></a></li>
+          <li><a href="http://luanvan.local/tochucthimain.php" target="_blank"><b>Tổ chức thi</b></a></li>
+          <li><a href="http://luanvan.local/viewlichthi.php" target="_blank"><b>Lịch thi - Danh sách thi</b></a></li>
+          <li><a href="http://luanvan.local/lichkhaigiangmain.php" target="_blank"><b>Lịch khai giảng - Lịch học</b></a></li>
+          <li><a href="http://luanvan.local/dangnhap.php" target="_blank"><button class="btn btn-primary btn-md">Đăng nhập</button></a></li>
+        </ul>
+</div>
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid"> 
+   <div class="row">
+        <div class="col-sm-12 embed-responsive embed-responsive-16by9">
+       <!--     <iframe class="embed-responsive-item" src="//www.youtube.com/embed/ePbKGoIGAXY" width="450" height="350"></iframe> 
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/S__uexwgov8" frameborder="0" allowfullscreen></iframe>-->
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/amCVoxV1u04" frameborder="0" allowfullscreen></iframe>
+        </div>
+       
+  </div>
+        <br>
+        <hr>
+  <div class="row">
+    <div class="col-sm-7">
+      <h2>Về trang web của chúng tôi</h2><br>
+      <h4>Nơi chúng tôi giới thiệu các sản phẩm, dịch vụ của mình đến với các bạn. Mọi thông tin luôn được cập nhật nhanh chóng và kịp thời để khách hàng và đối tác có thể tiếp cận thông tin của chúng tôi nhanh nhất.</h4><br>
+      <p>Doanh thu bán hàng là một điều quan trọng, nhưng lòng tin của khách hàng, sự phát triển bền vững với môi trường là điều được chúng tôi đặt lên hàng đầu. Ngoài việc cố gắng nỗ lực tạo ra sản phẩm tốt nhất, chúng tôi luôn tìm kiếm các phải pháp bảo vệ môi trường, tuyên truyền mọi người; tích cực tham gia các hoạt động từ thiện. Luôn với mục đích tạo nên một thế giới xanh, mà mỗi ngôi nhà là một phần tử xanh. Đó cũng là lý do chúng tôi có tên là Green House. Các bạn có thể xem các thông tin chi tiết tại chuyên mục "Đóng góp".</p>
+     <p>Ở chuyên mục Sản phẩm là các sản phẩm tiêu biểu của chúng tôi</p>
+     <p>Các bạn có thể liên hệ hoặc để lại lời nhắn với chung tôi ở phần Liên hệ. Chúng tôi đính kèm bản đồ nơi công ty hoạt động vào đó. </p>
+     <p>Nhập địa chỉ email và nhấn nút subcribe ở đầu trang web để cập nhật tin tức mới nhất từ chúng tôi nhé !</p>
+  <!--    <br><a href="#contact"><button class="btn btn-default btn-lg">Liên hệ</button></a>  -->
+    </div>
+    <div class="col-sm-5">
+      <span><img alt="about" src="img/about1.png" width="450" height="350"></span>
+       
+    </div>
+  </div>
+ 
+  
 </div>
 
-<div class="row">
-
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $this->translate('Follow Development') ?></h3>
-            </div>
-            <div class="panel-body">
-                <p><?php echo sprintf($this->translate('Zend Framework 2 is under active development. If you are interested in following the development of ZF2, there is a special ZF2 portal on the official Zend Framework website which provides links to the ZF2 %swiki%s, %sdev blog%s, %sissue tracker%s, and much more. This is a great resource for staying up to date with the latest developments!'), '<a href="http://framework.zend.com/wiki/display/ZFDEV2/Home">', '</a>', '<a href="http://framework.zend.com/zf2/blog">', '</a>', '<a href="https://github.com/zendframework/zf2/issues">', '</a>') ?></p>
-                <p><a class="btn btn-success pull-right" href="http://framework.zend.com/zf2" target="_blank"><?php echo $this->translate('ZF2 Development Portal') ?> &raquo;</a></p>
-            </div>
-        </div>
+<div class="container-fluid bg-grey">
+  <div class="row">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-globe logo slideanim"></span>
     </div>
-
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $this->translate('Discover Modules') ?></h3>
-            </div>
-            <div class="panel-body">
-                <p><?php echo sprintf($this->translate('The community is working on developing a community site to serve as a repository and gallery for ZF2 modules. The project is available %son GitHub%s. The site is currently live and currently contains a list of some of the modules already available for ZF2.'), '<a href="https://github.com/zendframework/modules.zendframework.com">', '</a>') ?></p>
-                <p><a class="btn btn-success pull-right" href="http://modules.zendframework.com/" target="_blank"><?php echo $this->translate('Explore ZF2 Modules') ?> &raquo;</a></p>
-            </div>
-        </div>
+    <div class="col-sm-8">
+      <h2>Giá trị của chúng tôi</h2><br>
+      <h4><strong>Sứ mệnh:</strong> Là công ty đầu ngành trong lĩnh vực chế biến và kinh doanh các sản phẩm và dịch vụ sữa, chúng tôi không chỉ có vai trò trong việc thúc đẩy kinh tế địa phương phát triển, mà còn là doanh nghiệp đi đầu, định hướng các doanh nghiệp khác cùng nhau phát triển bền vững gắn với bảo vệ môi trường. Phương châm của chúng tôi là "Sản phẩm thật, chất lượng thật - Một giọt sữa chất lượng thay cho ngàn câu quảng cáo" . Bên cạnh đó chúng tôi luôn tìm tòi học hỏi để tạo ra những sản phẩm thật sự tốt, nhằm vươn xa ra tầm châu lục và thế giới. Các đối tác của chúng tôi đa số là các công ty và tập đoàn lớn. Chúng tôi và các đối tác đã cùng nhau đóng góp cho một quỹ bảo vệ môi trường và động vật hoang dã SNF( Save The Nature Fund ). Hằng năm chúng tôi thu được khoảng 5 tỷ VND cho việc bảo tồn thiên nhiên.</h4><br>
+      <p><strong>Tầm nhìn:</strong> Mục tiêu năm 2020 chúng tôi sẽ là tập đoàn lớn mạnh tầm khu vực và vươn xa khắp năm châu. Thực hiện các chiến dịch tuyên truyền nhiều hơn để nâng cao ý thức của người dân. Kinh doanh phải gắn liền với hoạt động nhân đạo, từ thiện và bảo tồn môi trường, tài nguyên thiên nhiên.</p>
     </div>
-
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><?php echo $this->translate('Help &amp; Support') ?></h3>
-            </div>
-            <div class="panel-body">
-                <p><?php echo sprintf($this->translate('If you need any help or support while developing with ZF2, you may reach us via IRC: %s#zftalk on Freenode%s. We\'d love to hear any questions or feedback you may have regarding the beta releases. Alternatively, you may subscribe and post questions to the %smailing lists%s.'), '<a href="irc://irc.freenode.net/zftalk">', '</a>', '<a href="http://framework.zend.com/wiki/display/ZFDEV/Mailing+Lists">', '</a>') ?></p>
-                <p><a class="btn btn-success pull-right" href="http://webchat.freenode.net?channels=zftalk" target="_blank"><?php echo $this->translate('Ping us on IRC') ?> &raquo;</a></p>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
+
+<!-- Container (Product Section) -->
+<div id="sp" class="container-fluid">
+  <div class="text-center">
+    <h2>Ngôn ngữ</h2>
+    <h4>Chúng tôi có kinh nghiệm trong việc đào tạo các ngôn ngữ phổ biến với chất lượng tốt nhất</h4> <div class="col-sm-12 form-group">
+         <a href="menu/ngonngu" class="btn btn-info btn-lg" target="_blank">
+           Xem tất cả ngôn ngữ <span class="glyphicon glyphicon-menu-right"></span> 
+         </a>
+       <br><hr>
+        </div>
+  </div>
+  <div class="row slideanim">
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Tiếng anh</h1>
+        </div>
+        <div class="panel-body">
+            <img src="img/eng.png" width="100%" height="200">
+        </div>
+        <div class="panel-footer plan">
+          <h3>Tiếng anh là ngôn ngữ phổ biến hiện nay, chỉ một lần đầu tư sử dụng cả đời.</h3>
+          <h4>Chúng tôi đào tạo ôn luyện tất cả các kỳ thi quốc gia lẫn quốc tế như: A, B, C, IELTS, TOELF..</h4>
+        </div>
+      </div>      
+    </div>     
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Tiếng Pháp </h1>
+        </div>
+        <div class="panel-body">
+          <img src="img/fr.png" width="100%" height="200">
+        </div>
+        <div class="panel-footer plan">
+          <h3>Đất nước kinh đô thời trang của thế giới là điểm đến mơ ước của mọi người. </h3>
+          <h4>Với nhiều giảng viên kinh nghiệm đã du học ở Pháp hoặc quốc gia nói tiếng Pháp, chúng tôi tự tin dạy và ôn các khóa thi DELF, DALF</h4>
+        </div>
+      </div>      
+    </div>       
+    <div class="col-sm-4 col-xs-12">
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Tiếng Nhật</h1>
+        </div>
+        <div class="panel-body">
+          <img src="img/jp.jpg" width="100%" height="200">
+        </div>
+        <div class="panel-footer plan">
+         <h3>Con người nhật bản kiên cường và vĩ đại trước mọi khó khăn luôn thu hút chúng ta đến với đất nước hoa anh đào</h3>
+          <h4>Với kinh nghiệm nhiều năm hợp tác với Nhật, chúng tôi có kinh nghiệm trong việc giảng dạy từ N1 đến N5</h4>
+        </div>
+      </div>      
+    </div>    
+  </div>
+</div>    
+    
+    
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2>Khóa học</h2>
+  <h4>Chúng tôi có những gì?</h4>
+    <a href="menu/ct" class="btn btn-info btn-lg" target="_blank">
+           Xem tất cả khóa học <span class="glyphicon glyphicon-menu-right"></span> 
+    </a>
+    <br><hr>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-home logo-small"></span>
+      <h4>Luyện thi chứng chỉ quốc tế các loại ngôn ngữ</h4>
+      <p>Chúng tôi sẵn sàng hỗ trợ và cung cấp cho bạn các kiến thức khoa học kĩ thuật về việc xây dựng một ngôi nhà gần gũi với thiên nhiên.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+      <h4>Anh văn cho trẻ em</h4>
+      <p>Bạn có thể tham giác các chương trình chia sẻ yêu thương, là một loại hình dịch vụ du lịch kết hợp tìm hiểu và chia sẻ với các đồng bào không được may mắn với chúng ta. Qua đó bạn có thể giúp đỡ trực tiếp hoặc đóng góp vào quỹ từ thiện của chúng tôi.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-headphones logo-small"></span>
+      <h4>Tiếng Pháp yêu thương</h4>
+      <p>Chúng tôi có đội ngũ nhân viên chuyên nghiệp, sẵn sàng cùng bạn vượt mọi cùng đường, từng khe suối vách đá để lắng nghe, hòa nhịp vào tiếng gọi của chim rừng, của thác nước..</p>
+    </div>
+  </div>
+  <br><br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-leaf logo-small"></span>
+      <h4>Tìm hiểu đất nước hoa anh đào</h4>
+      <p>Chúng tôi cung cấp cho bạn các chuyến tham quan du lịch đến các trang trại, rừng nguyên sinh thật sự còn giữ nguyên nét hoang sơ, qua đó chúng tôi cũng tuyên truyền về bảo vệ môi trường. Đặc biệt rất thích hợp với con của bạn.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-picture logo-small"></span>
+      <h4>Ngoại ngữ giao tiếp</h4>
+      <p>Sử dụng dịch vụ này đồng nghĩa bạn được trang bị một đôi mắt thần kỳ, có thể xem tất cả các cảnh đẹp của tự nhiên, được chúng tôi chọn lọc khảo sát kĩ lưỡng. Có thể xem trực tiếp hoặc gián tiếp bằng các video và hình ảnh do chúng tôi ghi lại. </p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-grain logo-small"></span>
+      <h4 style="color:#303030;">Luyện thi online chất lượng tốt nhất</h4>
+      <p>Chúng tôi cung cấp dịch vụ giúp bạn trải nghiệm cuộc sống của một nông dân thực thụ, qua đó bạn sẽ hiểu và yêu thiên nhiên hơn. Một tuần trải nghiệm với đủ mọi công việc, bạn phải thật sự chăm chỉ. Kết thúc dịch vụ bạn có thể nhận được quà hay vài món quà lưu niệm nếu hoàn thành tốt công việc được giao.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Container (Đóng góp Section) -->
+<div id="donggop" class="container-fluid text-center bg-grey">
+  <h2>Đóng góp</h2><br>
+  <h4>Những năm qua, ngoài nhiệm vụ giáo dục, chúng tôi cũng đóng góp nhiều vào các dự án tuyên truyền văn hóa và ngôn ngữ cũng như các chương trình từ thiện quy mô quốc tế.</h4>
+  <div class="row text-center slideanim">
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="img/children.jpg" alt="Paris" width="400" height="300">
+        <p><strong>Action for children</strong></p>
+        <p>2013, 2014, 2015</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="img/earth.jpg" alt="New York" width="400" height="300">
+        <p><strong>Save The Earth</strong></p>
+        <p>2012, 2014</p>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <img src="img/nature.png" alt="San Francisco" width="400" height="300">
+        <p><strong>Protect natural life</strong></p>
+        <p> 2015 </p>
+      </div>
+    </div>
+  </div><br>
+  
+  <h2>Mọi người nói gì về chúng tôi ?</h2>
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <h4>"Nhờ có trung tâm mà tôi đã vượt qua được kỳ thi IELTS khó khăn và có được ngày hôm nay!"<br><span style="font-style:normal;"> Nguyễn Văn A - Tiếp viên hàng không</span></h4>
+      </div>
+      <div class="item">
+        <h4>"Ngoại ngữ là chìa khóa tốt nhất mở mọi cảnh cửa tương lai, cảm ơn Trung Tâm rất nhiều!"<br><span style="font-style:normal;"> Lê Thị B - Du học sinh Pháp Ngữ </span></h4>
+      </div>
+      <div class="item">
+        <h4>"Tiếng nhật khó học nhưng với Trung tâm Ngoại ngữ này thì không khó tí nào!"<br><span style="font-style:normal;"> Lê Văn C - Kỹ sư cầu nối Nhật Bản </span></h4>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<!-- Hệ thống quản lý (Contact Section) -->
+<div id="login" class="container-fluid bg-grey">
+  <h2 class="text-center">Hệ thống quản lý</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Với hệ thống quản lý chuyên nghiệp, chúng tôi tự tin là đơn vị áp dụng công nghệ thông tin vào quản lý và tự động hóa công tác hành chính tốt nhất Việt Nam.</p>
+
+    </div>
+    <div class="col-sm-7 slideanim">
+     <p>Để đăng nhập vào hệ thống quản lý bạn phải có tài khoản được quản lý hệ thống của chúng tôi cung cấp. Mọi chi tiết xin liên hệ theo <a href="#contact">địa chỉ</a>. <br><hr>Nếu bạn là học viên, giảng viên đã được cấp tài khoản tài khoản <a href="http://luanvan.local/dangnhap.php" target="_blank"><button class="btn btn-primary btn-md">Đăng nhập ngay</button></a></p>  
+    </div>
+
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container-fluid bg-grey">
+  <h2 class="text-center">Liên hệ</h2>
+  <div class="row">
+    <div class="col-sm-5">
+      <p>Chúng tôi sẽ liên lạc lại với bạn trong vòng 24h khi nhận được email.</p>
+      <p><span class="glyphicon glyphicon-map-marker"></span> Cần thơ, Việt Nam</p>
+      <p><span class="glyphicon glyphicon-phone"></span> +84 1225851209</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> mrtrung99@gmail.com</p>	   
+    </div>
+    <form method="post" action="addcontact.php" enctype="multipart/form-data">
+    <div class="col-sm-7 slideanim">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Tên" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comment" placeholder="Góp ý" rows="5" required></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-right" type="submit">Gửi</button>
+        </div>
+      </div>	
+    </div>
+    </form>
+  </div>
+</div>
+
+
+<div id="googleMap" style="height:400px;width:100%;"></div>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script>
+var myCenter = new google.maps.LatLng(10.032014, 105.768647);
+
+function initialize() {
+var mapProp = {
+  center:myCenter,
+  zoom:12,
+  scrollwheel:false,
+  draggable:false,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+var marker = new google.maps.Marker({
+  position:myCenter,
+  });
+
+marker.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+ 		
+</footer>
+<?php
+/*	if (isset($_POST["dangnhap"])) {
+        $conn=mysql_connect("localhost", "root", "") or die("can't connect database");
+        mysql_select_db("mrt",$conn); 
+        mysql_query("set names 'utf8'",$conn);
+        $username= mysql_real_escape_string($_POST['username']);
+        $password=mysql_real_escape_string($_POST['password']);
+        $sql = "select * from taikhoan where username= '".$username."' and password='". $password."'";
+        $result = mysql_query($sql, $conn) or die("Could not do query");
+        $num_rows = mysql_num_rows($result);
+        if ($num_rows==0){
+            echo '<script type="text/javascript">';
+            echo 'alert("tên đăng nhập hoặc mật khẩu không đúng !")';  //not showing an alert box.
+            echo '</script>';
+        }else {
+				while($row = mysql_fetch_array($result)){
+                     $_SESSION['username'] = $username;
+                     $_SESSION['manv'] = $row["manv"];
+                    if($row["level"] == 0){
+                        header('Location: http://mrt.local/blog');
+                    } else if($row["level"] == 1){
+                        header('Location: http://mrt.local/chungchi');
+                    } else header('Location: http://mrt.local/ngonngu');  
+            }        
+        }   
+	}
+*/
+?>
+<script>
+$(document).ready(function(){
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    event.preventDefault();
+
+    var hash = this.hash;
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 900, function(){
+   
+
+      window.location.hash = hash;
+    });
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>

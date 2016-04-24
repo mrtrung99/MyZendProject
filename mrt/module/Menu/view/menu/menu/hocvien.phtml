@@ -1,0 +1,40 @@
+<?php
+
+$title = 'Đây là giao diện menu chọn các chức năng của hệ thống';
+$this->headTitle($title);
+session_start();
+if (!isset($_SESSION['username'])) {
+	 header('Location: http://luanvan.local/dangnhap.php');
+}
+?>
+<body>
+
+   
+  
+<div class="container" id="menu">
+    <div>
+        <div class="jumbotron text-center">
+             <h1>Foreign Languages Center</h1> 
+ <!-- <p>Chúng tôi là chuyên gia trong lĩnh vực sữa tươi và các sản phẩm về sữa</p> -->
+            <p>Uy tín - Chất lượng - Vững bền</p> 
+                <a href="http://ctu.edu.vn" target="_blank"><button type="button" class="btn btn-danger">Trang chủ</button>  </a>            
+        </div> 
+    </div>
+</div> 
+<?php
+    $magv =AV1;
+    $makh=1;
+    $mahv ="B1208838";
+?>
+<div class="container" id="content"><p>Chào học viên <?php echo $id; ?></p>
+    <h1>Danh mục chức năng dành cho học viên</h1>
+    <ol>
+        <li> <a href="http://luanvan.local/hocvien/danhgia.php?magv=<?php echo $magv;?>&makh=<?php echo $makh;?>">Đánh giá giảng viên</a></li>
+        <li>Xem kết quả học tập</li>
+        <li><a href="http://luanvan.local/hocvien/info.php?mahv=<?php echo $mahv;?>">Xem thông tin cá nhân</a></li>
+    </ol>
+    
+</div>
+
+
+</body>

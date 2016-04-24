@@ -3,44 +3,6 @@
 $title = 'Đây là giao diện menu chọn các chức năng của hệ thống';
 $this->headTitle($title);
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title><?php echo $this->escapeHtml($title); ?></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <style>
-        body {
-        background: #ffffff url("img/img.jpg") no-repeat;
-        }
-        .jumbotron { 
-        background-color: #3399CC; /* Orange */
-        color: #ffffff;
-        #tb1 {
-        padding: 10px;
-        border: 0px solid;
-        margin: 20px;
-        width:900px ;
-        }
-        #panel1{
-            max-width: 60%; display: block;
-        }
-            
-       #panel2{
-            max-width: 40%; display: block;
-             max-height: 50%; display: block;
-        }
-            
-       #panel2{
-             max-width: 40%; display: block;
-             max-height: 50%; display: block;
-        }
-      <!--  #panel1 {width: 1000px;}  -->
-      </style>
-</head>
 <body>
 
    
@@ -49,17 +11,13 @@ $this->headTitle($title);
     <div>
         <div class="jumbotron text-center">
              <h1>Foreign Languages Center</h1> 
- <!-- <p>Chúng tôi là chuyên gia trong lĩnh vực sữa tươi và các sản phẩm về sữa</p> -->
-            <p>Uy tín - Chất lượng - Vững bền</p> 
-            <form class="form-inline">
-                <a href="http://ctu.edu.vn" target="_blank"><button type="button" class="btn btn-danger">Trang chủ</button>  </a>            
-            </form>
+ <!-- <p>Chúng tôi là chuyên gia trong lĩnh vực sữa tươi và các sản phẩm về sữa</p>
+            <p>Uy tín - Chất lượng - Vững bền</p>   -->
+                <a href="http://ctu.edu.vn" target="_blank"><button type="button" class="btn btn-danger">Trang chủ</button>  </a>  <br> <hr>           
         </div> 
     </div>
-    
-      <div id="panel" class="panel-group"> 
           <div id ="panel1"class="panel panel-primary text-center">
-              <div class="panel-heading"><?php echo $this->escapeHtml($title); ?></div>
+          <!--    <div class="panel-heading"><?php echo $this->escapeHtml($title); ?></div> -->
               <br><br>
               <div id="demo" class="panel-body">
                   <ul class="nav nav-tabs">
@@ -84,7 +42,7 @@ $this->headTitle($title);
                            
                             <button type="button" class="btn btn-primary">Khóa học <span class="badge">1</span></button>
                             <a href="http://mrt.local/ngonngu" target="_blank"> <button type="button" class="btn btn-primary">Ngôn ngữ <span class="badge">2</span></button></a>
-                            <button type="button" class="btn btn-primary">Chứng chỉ <span class="badge">3</span></button>
+                            <a href="http://mrt.local/chungchi" target="_blank"><button type="button" class="btn btn-primary">Chứng chỉ <span class="badge">3</span></button></a>
                             <button type="button" class="btn btn-primary">Cấp lớp <span class="badge">4</span></button>
                             <br><hr>
                             <button type="button" class="btn btn-primary">Lớp học <span class="badge">5</span></button>
@@ -132,7 +90,7 @@ $this->headTitle($title);
                       <br>
                       <div class="row">
                         <div class="col-md-3">
-                          <a href="pulpitrock.jpg" class="thumbnail">
+                          <a href="http://luanvan.local/admin/diemdanh1.php"  target="_blank" class="thumbnail">
                             <p>Chấm công giảng viên</p>    
                             <img src="img/chamcong.png" alt="Chấm công giảng viên" style="width:150px;height:150px">
                           </a>
@@ -144,7 +102,7 @@ $this->headTitle($title);
                           </a>
                         </div>
                         <div class="col-md-3">
-                          <a href="cinqueterre.jpg" class="thumbnail">
+                          <a href="http://luanvan.local/giaovien/nhapdiem.php" target="_blank" class="thumbnail">
                             <p>Phân quyền giảng viên nhập điểm</p>    
                             <img src="img/phanquyen.gif" alt="Phân quyền giảng viên nhập điểm" style="width:150px;height:150px">
                           </a>
@@ -171,13 +129,13 @@ $this->headTitle($title);
                           </a>
                         </div>
                         <div class="col-md-3">
-                          <a href="pulpitrock.jpg" class="thumbnail">
+                          <a href="http://luanvan.local/chucnang17.php" target="_blank" class="thumbnail">
                             <p>Báo cáo tổng hợp chất lượng kết quả thi</p>    
                             <img src="img/baocaokqthi.png" alt="Báo cáo kết quả thi" style="width:150px;height:150px">
                           </a>
                         </div>
                         <div class="col-md-3">
-                          <a href="moustiers-sainte-marie.jpg" class="thumbnail">
+                          <a href="http://luanvan.local/chucnang18.php" target="_blank" class="thumbnail">
                             <p>Báo cáo chất lượng giảng dạy Giảng viên dựa trên kết quả học viên</p>    
                             <img src="img/baocaochatluong.png" alt="Báo cáo chất lượng" style="width:150px;height:150px">
                           </a>
@@ -185,7 +143,7 @@ $this->headTitle($title);
                       </div>
                        <div class="row">
                         <div class="col-md-3">
-                          <a href="pulpitrock.jpg" class="thumbnail">
+                          <a href="http://luanvan.local/chucnang19.php" target="_blank" class="thumbnail">
                             <p>Báo cáo kết quả đánh giá học viên đối với giảng viên</p>    
                             <img src="img/baocaodanhgia.png" alt="Báo cáo đánh giá" style="width:150px;height:150px">
                           </a>
@@ -277,7 +235,7 @@ $this->headTitle($title);
                       <hr>
                       <div class="row">
                         <div class="col-md-3">
-                          <a href="pulpitrock.jpg" class="thumbnail">
+                          <a href="http://luanvan.local/chucnang35.php" target="_blank" class="thumbnail">
                             <p>Tổng hợp báo cáo số lượng chứng chỉ đã cấp theo từng loại</p>    
                             <img src="img/report.png" alt="Tổng hợp báo cáo" style="width:150px;height:150px">
                           </a>
@@ -289,9 +247,9 @@ $this->headTitle($title);
                 </div>
             </div>
         </div>
-    </div>
+
 </div>
 
 </body>
-</html>
+
 
